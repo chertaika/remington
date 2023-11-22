@@ -3,9 +3,12 @@ import { useState } from 'react';
 import { HashLink } from 'react-router-hash-link';
 import headerLogo from '../../assets/images/logo-header.svg';
 import './Header.css';
+import MobileNavTab from './MobileNavTab/MobileNavTab';
+import NavTab from './NavTab/NavTab';
 
-const Header = () => {
+const Header = ({ content }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+  console.log(content);
 
   const handleOpenMenu = () => {
     setIsMenuOpened(!isMenuOpened);
@@ -35,57 +38,13 @@ const Header = () => {
           </HashLink>
         </div>
         <ul className="header__links">
-          <li>
-            <HashLink
-              className="header__link link-hover"
-              to="#remington"
-              smooth
-            >
-              Remington 7.62
-            </HashLink>
-          </li>
-          <li>
-            <HashLink
-              className="header__link link-hover"
-              to="#harweld"
-              smooth
-            >
-              Harweld
-            </HashLink>
-          </li>
-          <li>
-            <HashLink
-              className="header__link link-hover"
-              to="#equipment"
-              smooth
-            >
-              Экипировка
-            </HashLink>
-          </li>
-          <li>
-            <HashLink
-              className="header__link link-hover"
-              to="#special"
-              smooth
-            >
-              Спецуха
-            </HashLink>
-          </li>
-          <li>
-            <HashLink
-              className="header__link link-hover"
-              to="#promotions"
-              smooth
-            >
-              Акции
-            </HashLink>
-          </li>
-          <li>
-            <HashLink className="header__link link-hover" to="#company" smooth>
-              О
-              компании
-            </HashLink>
-          </li>
+          {content.map(item => (
+            <NavTab
+              slug={item.slug}
+              title={item.title}
+              key={item.shop_id}
+            />
+          ))}
         </ul>
       </nav>
       <nav className={`header__menu header__menu_mobile ${isMenuOpened ? 'header__menu_opened' : ''}`}>
@@ -100,54 +59,13 @@ const Header = () => {
           <h1 className="header__mobile-title">Экипировка</h1>
         </div>
         <ul className="header__menu-options">
-          <li className="header__menu-option">
-            <HashLink className="header__menu-link" to="#remington" smooth>
-              Remington
-              7.62
-            </HashLink>
-          </li>
-          <li className="header__menu-option">
-            <HashLink
-              className="header__menu-link"
-              to="#harweld"
-              smooth
-            >
-              Harweld
-            </HashLink>
-          </li>
-          <li className="header__menu-option">
-            <HashLink
-              className="header__menu-link"
-              to="#equipment"
-              smooth
-            >
-              Экипировка
-            </HashLink>
-          </li>
-          <li className="header__menu-option">
-            <HashLink
-              className="header__menu-link"
-              to="#special"
-              smooth
-            >
-              Спецуха
-            </HashLink>
-          </li>
-          <li className="header__menu-option">
-            <HashLink
-              className="header__menu-link"
-              to="#promotions"
-              smooth
-            >
-              Акции
-            </HashLink>
-          </li>
-          <li className="header__menu-option">
-            <HashLink className="header__menu-link" to="#company" smooth>
-              О
-              компании
-            </HashLink>
-          </li>
+          {content.map(item => (
+            <MobileNavTab
+              slug={item.slug}
+              title={item.title}
+              key={item.shop_id}
+            />
+          ))}
         </ul>
       </nav>
     </header>

@@ -560,4 +560,28 @@ const testContent = [
 
 ];
 
-export default testContent;
+const testSlides = [
+  {
+    slide_id: 1,
+    image: 'https://ekipirovka70.ru/storage/cache/slider_1_1900_600.webp',
+    description: 'Технологичные товары для охоты, рыбалки, туризма и&nbsp;активного&nbsp;отдыха',
+    button_text: 'Посмотреть новинки',
+    link: 'https://ekipirovka70.ru/',
+  },
+  {
+    slide_id: 2,
+    image: 'https://ekipirovka70.ru/storage/cache/slider_1_1900_600.webp',
+    description: '',
+    button_text: 'Посмотреть новинки',
+    link: 'https://ekipirovka70.ru/',
+  },
+  {
+    slide_id: 3,
+    image: 'https://ekipirovka70.ru/storage/cache/slider_1_1900_600.webp',
+    description: 'Технологичные товары для охоты, рыбалки, туризма и&nbsp;активного&nbsp;отдыха',
+    button_text: 'Посмотреть новинки',
+    link: '',
+  },
+];
+
+export { testContent, testSlides };

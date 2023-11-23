@@ -1,10 +1,13 @@
 import { HashLink } from 'react-router-hash-link';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import NavLink from './NavLink/NavLink';
 import './NavTab.css';
+import ContentContext from '../../contexts/ContentContext';
 
-const NavTab = ({ place, content }) => {
+const NavTab = ({ place }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
+
+  const content = useContext(ContentContext);
 
   const handleOpenMenu = () => {
     setIsMenuOpened(!isMenuOpened);

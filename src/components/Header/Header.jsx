@@ -3,7 +3,7 @@ import headerLogo from '../../assets/images/logo-header.svg';
 import './Header.css';
 import NavTab from '../NavTab/NavTab';
 
-const Header = ({ content }) => (
+const Header = () => (
   <header className="header">
     <div className="header__company-info">
       <img className="header__logo" src={headerLogo} alt="логотип" />
@@ -16,7 +16,7 @@ const Header = ({ content }) => (
         <div className="header__social-icon" />
       </Link>
     </div>
-    <NavTab content={content} place="header" />
+    <NavTab place="header" />
   </header>
 );
 

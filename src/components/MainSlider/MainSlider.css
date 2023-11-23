@@ -5,6 +5,7 @@
 .swiper {
   display: flex;
   position: relative;
+  overflow: hidden;
 }
 
 .swiper-wrapper {

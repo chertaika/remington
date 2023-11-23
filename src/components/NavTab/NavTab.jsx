@@ -15,7 +15,7 @@ const NavTab = ({ place }) => {
 
   return (
     <nav
-      className={`nav-tab__menu ${isMenuOpened ? 'nav-tab__menu_opened' : ''}`}
+      className={`nav-tab__menu ${place === 'header' ? 'nav-tab__menu_type_header' : ''} ${isMenuOpened ? 'nav-tab__menu_opened' : ''}`}
     >
       {place === 'header'
         && (
@@ -45,11 +45,12 @@ const NavTab = ({ place }) => {
           </>
         )}
 
-      <ul className="nav-tab__menu-options">
+      <ul className={`nav-tab__menu-options ${place === 'footer' ? 'nav-tab__menu-options_type_footer' : ''}`}>
         {content.map(item => (
           <NavLink
             slug={item.slug}
             title={item.title}
+            place={place}
             key={item.shop_id}
           />
         ))}

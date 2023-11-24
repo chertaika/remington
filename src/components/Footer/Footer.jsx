@@ -3,7 +3,7 @@ import NavTab from '../NavTab/NavTab';
 import './Footer.css';
 
 const Footer = () => (
-  <footer className="footer">
+  <footer className="footer" id="footer">
     <div className="footer__content">
       <img className="footer__logo" src={footerLogo} alt="логотип" />
       <NavTab place="footer" />

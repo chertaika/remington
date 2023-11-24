@@ -4,30 +4,36 @@ import NavLink from './NavLink/NavLink';
 import './NavTab.css';
 import ContentContext from '../../contexts/ContentContext';
 
-const NavTab = ({ place }) => {
+const NavTab = ({ place, isHeaderMin = false }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
   const content = useContext(ContentContext);
 
   const handleOpenMenu = () => {
-    setIsMenuOpened(!isMenuOpened);
+    const currentWidth = window.innerWidth;
+    if (currentWidth < 768) {
+      setIsMenuOpened(!isMenuOpened);
+    }
   };
 
   return (
     <nav
-      className={`nav-tab__menu ${place === 'header' ? 'nav-tab__menu_type_header' : ''} ${isMenuOpened ? 'nav-tab__menu_opened' : ''}`}
+      className={`nav-tab__menu ${place === 'header' ? 'nav-tab__menu_type_header' : ''} ${isMenuOpened && place === 'header' ? 'nav-tab__menu_opened' : ''}`}
     >
       {place === 'header'
         && (
           <>
             <div className="nav-tab__fixed-logo-container">
-              <HashLink
-                className="nav-tab__fixed-logo"
-                to="#top"
-                smooth
-              >
-                Экипировка
-              </HashLink>
+              {isHeaderMin
+                && (
+                <HashLink
+                  className="nav-tab__fixed-logo"
+                  to="#top"
+                  smooth
+                >
+                  Экипировка
+                </HashLink>
+                )}
             </div>
             <div className="nav-tab__mobile-content">
               <div
@@ -52,8 +58,21 @@ const NavTab = ({ place }) => {
             title={item.title}
             place={place}
             key={item.shop_id}
+            onClick={handleOpenMenu}
           />
         ))}
+        <NavLink
+          slug="#promo"
+          title="Акции"
+          place={place}
+          onClick={handleOpenMenu}
+        />
+        <NavLink
+          slug="#about"
+          title="О компании"
+          place={place}
+          onClick={handleOpenMenu}
+        />
       </ul>
     </nav>
   );

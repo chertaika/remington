@@ -1,0 +1,30 @@
+.anchor-link {
+  text-decoration: none;
+  display: block;
+  font-size: 20px;
+  color: #fff;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.footer .anchor-link {
+  line-height: 1.2;
+}
+
+.companies .anchor-link {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+@media screen and (max-width: 1023px) {
+  .footer .anchor-link {
+    font-size: 2vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .anchor-link {
+    font-size: 25px !important;
+  }
+}

@@ -23,17 +23,17 @@ const MainSlider = ({ slides }) => (
     >
       {slides.map(slide => (
         <SwiperSlide key={slide.slide_id}>
-          <img className="slider__img" src={slide.image} alt="название слайдера" />
-          <div className="slider__info">
+          <img className="main-swiper__img" src={slide.image} alt="название слайдера" />
+          <div className="main-swiper__info">
             {slide.description.length > 0
               && (
-                <p className="slider__text">
+                <p className="main-swiper__text">
                   {slide.description}
                 </p>
               )}
             {slide.link.length > 0
               && (
-                <Link className="slider__link button-hover" to={slide.link}>{slide.button_text}</Link>
+                <Link className="main-swiper__link button-hover" to={slide.link}>{slide.button_text}</Link>
               )}
           </div>
         </SwiperSlide>

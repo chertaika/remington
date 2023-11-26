@@ -18,7 +18,7 @@ const NavTab = ({ place, isHeaderMin = false }) => {
 
   return (
     <nav
-      className={`nav-tab__menu ${place === 'header' ? 'nav-tab__menu_type_header' : ''} ${isMenuOpened && place === 'header' ? 'nav-tab__menu_opened' : ''}`}
+      className={`nav-tab ${place === 'header' ? 'nav-tab_type_header' : ''} ${isMenuOpened && place === 'header' ? 'nav-tab_opened' : ''}`}
     >
       {place === 'header'
         && (

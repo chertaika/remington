@@ -1,4 +1,4 @@
-import { HashLink } from 'react-router-hash-link';
+import AnchorLink from '../../AnchorLink/AnchorLink';
 
 const NavLink = ({
   slug,
@@ -15,15 +15,15 @@ const NavLink = ({
   return (
     <li
       className={`nav-tab__menu-option ${place === 'header' && 'nav-tab__menu-option_type_header'}`}
+      onClick={onClick}
     >
-      <HashLink
-        className={`nav-tab__menu-link link-hover ${place === 'footer' && 'nav-tab__menu-link_type_footer'}`}
-        to={`#${slug}`}
+      <AnchorLink
+        slug={slug}
+        place={place}
         scroll={scroll}
-        onClick={onClick}
       >
         {title}
-      </HashLink>
+      </AnchorLink>
     </li>
   );
 };

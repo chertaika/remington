@@ -64,7 +64,7 @@
   background-color: #fff;
 }
 
-.slider__info {
+.main-swiper__info {
   max-width: 32%;
   position: absolute;
   bottom: 11%;
@@ -72,18 +72,18 @@
 }
 
 @media screen and (max-width: 767px) {
-  .slider__info {
+  .main-swiper__info {
     display: none;
   }
 }
 
-.slider__text {
+.main-swiper__text {
   font-size: 2.6vw;
   color: #fff;
   margin: 0;
 }
 
-.slider__link {
+.main-swiper__link {
   display: inline-block;
   margin-top: 20px;
   padding: 15px 20px;
@@ -94,7 +94,7 @@
   text-decoration: none;
 }
 
-.slider__img {
+.main-swiper__img {
   display: block;
   width: 100%;
   aspect-ratio: 19/6;

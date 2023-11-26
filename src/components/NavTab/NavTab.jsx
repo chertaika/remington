@@ -62,13 +62,13 @@ const NavTab = ({ place, isHeaderMin = false }) => {
           />
         ))}
         <NavLink
-          slug="#promo"
+          slug="promotions"
           title="Акции"
           place={place}
           onClick={handleOpenMenu}
         />
         <NavLink
-          slug="#about"
+          slug="about"
           title="О компании"
           place={place}
           onClick={handleOpenMenu}

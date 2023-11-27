@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="100px" height="30px" fill-rule="evenodd" clip-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 9.32 2.82">
+  <defs>
+    <style>
+      .fil0{fill:#fff;fill-rule:nonzero}
+    </style>
+  </defs>
+  <g id="Слой_x0020_1">
+    <path d="M.31 2.81H0V0h1.12v.28H.31z" class="fil0"/>
+    <path id="1" d="M2.04 0c.21 0 .37.06.47.18.1.12.16.29.16.51v.33c0 .45-.22.68-.66.68h-.27v1.11h-.32V0h.62zm-.03 1.42c.12 0 .21-.03.26-.09.06-.06.09-.15.09-.29V.67c0-.13-.03-.23-.08-.29a.3.3 0 0 0-.24-.1h-.3v1.14h.27z" class="fil0"/>
+    <path id="2" d="M3.75 2.19c-.03.15-.08.27-.13.36-.05.09-.13.16-.22.21-.1.04-.23.06-.4.05v-.28c.12 0 .21-.01.27-.05a.37.37 0 0 0 .13-.23l.07-.18L2.82 0h.31l.29.97.19.71.17-.71.25-.97h.32l-.6 2.19z" class="fil0"/>
+    <path id="3" d="M4.89 2.81h-.31V0H5.9v2.81h-.32V.28h-.69z" class="fil0"/>
+    <path id="4" d="M6.53 2.81h-.31V0h1.31v2.81h-.31V.28h-.69z" class="fil0"/>
+    <path id="5" d="M8.06 2.81h-.29L8.31 0h.45l.54 2.81h-.31l-.11-.57h-.71l-.11.57zm.77-.84L8.52.35l-.31 1.62h.62z" class="fil0"/>
+  </g>
+</svg>

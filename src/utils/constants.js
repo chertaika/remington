@@ -500,4 +500,36 @@ const testSlides = [
   },
 ];
 
-export { testContent, testSlides };
+const mainApiSettings = {
+  baseUrl: 'https://api.chertaika.nomoreparties.co',
+  // baseUrl: 'http://localhost:3000',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  // endpoints: {
+  //   userEndpoint: USER_ENDPOINT,
+  //   moviesEndpoint: MOVIES_ENDPOINT,
+  //   regEndpoint: REG_ENDPOINT,
+  //   authEndpoint: AUTH_ENDPOINT,
+  //   logoutEndpoint: LOGOUT_ENDPOINT,
+  // },
+};
+
+// методы запросов
+const METHOD_POST = 'POST';
+
+// регулярные выражения валидации
+const EMAIL_REGEX = '^[a-zA-Z0-9+_.\\-]+@[a-zA-Z0-9]+\\.[a-zA-Z0-9]{2,4}$';
+const NAME_REGEX = '[A-Za-zА-Яа-яЁё\\s\\-]+';
+
+const ERROR = 'Ошибка';
+
+export {
+  testContent,
+  testSlides,
+  mainApiSettings,
+  METHOD_POST,
+  ERROR,
+  EMAIL_REGEX,
+  NAME_REGEX,
+};

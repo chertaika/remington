@@ -6,8 +6,6 @@ import './Companies.css';
 const Companies = () => {
   const content = useContext(ContentContext);
 
-  console.log(content);
-
   return (
     <section className="companies">
       <div className="companies__container">

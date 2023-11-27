@@ -7,13 +7,14 @@
 .companies__container {
   display: grid;
   gap: 5vw;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, calc(25% - (15vw / 4)));
   align-items: center;
+  justify-content: center;
 }
 
 @media screen and (max-width: 767px) {
   .companies__container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, calc(50% - (5vw / 2)));
   }
 }
 

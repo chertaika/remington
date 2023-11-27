@@ -73,6 +73,10 @@
   color: rgba(108, 108, 87, .5);
 }
 
+.subscribe__input_type_error {
+  border: 1px solid red;
+}
+
 .subscribe__input:focus {
   outline: none;
   color: #6c6c57;
@@ -82,10 +86,6 @@
   color: transparent;
 }
 
-.subscribe__input_type_error {
-  border: 1px solid red;
-}
-
 .subscribe__input-error {
   color: red;
   font-family: Arial, sans-serif;
@@ -93,7 +93,6 @@
   font-weight: 400;
   line-height: 12px;
   padding: 5px 0;
-  opacity: 0;
   transition: opacity .2s;
 }
 
@@ -101,10 +100,6 @@
   .subscribe__input-error {
     min-height: 24px;
   }
-}
-
-.subscribe__input-error_visible {
-  opacity: 1;
 }
 
 .subscribe__submit-btn {
@@ -136,12 +131,12 @@
   }
 }
 
-.subscribe__submit-btn_disabled {
+.subscribe__submit-btn:disabled {
   opacity: .2;
   cursor: auto;
 }
 
-.subscribe__submit-btn_disabled:hover {
+.subscribe__submit-btn:disabled:hover {
   background-color: #6c6c57;
 }
 

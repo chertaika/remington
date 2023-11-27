@@ -52,15 +52,25 @@ const NavTab = ({ place, isHeaderMin = false }) => {
         )}
 
       <ul className={`nav-tab__menu-options ${place === 'footer' ? 'nav-tab__menu-options_type_footer' : ''}`}>
-        {content.map(item => (
-          <NavLink
-            slug={item.slug}
-            title={item.title}
-            place={place}
-            key={item.shop_id}
-            onClick={handleOpenMenu}
-          />
-        ))}
+        {content.map(({
+          catalog,
+          slug,
+          title,
+          shop_id: shopId,
+        }) => {
+          if (catalog) {
+            return (
+              <NavLink
+                slug={slug}
+                title={title}
+                place={place}
+                key={shopId}
+                onClick={handleOpenMenu}
+              />
+            );
+          }
+          return false;
+        })}
         <NavLink
           slug="promotions"
           title="Акции"

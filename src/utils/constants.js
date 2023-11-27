@@ -5,7 +5,7 @@ const testContent = [
     description: 'Вся одежда Remington выполнена из технологичных материалов: не промокает, не продувается, устойчива к механическим повреждениям, обладает хорошими дышащими свойствами, отличный вариант одежды для охоты и рыбалки.\n\n'
       + 'В моделях предусмотрены все необходимые функциональные элементы, которые заменяют дополнительную экипировку. Вы просто получаете максимальное удовольствие от вашего хобби.',
     vk_link: 'https://vk.com/remington7_62_tomsk',
-    slug: 'footer',
+    slug: 'remington-762',
     address: 'ТРЦ "Изумрудный город"'
       + 'г. Томск, пр. Комсомольский, 13Б'
       + 'Режим работы: с 10:00 до 22:00 ч',
@@ -198,7 +198,7 @@ const testContent = [
     description: 'Вся одежда Remington выполнена из технологичных материалов: не промокает, не продувается, устойчива к механическим повреждениям, обладает хорошими дышащими свойствами, отличный вариант одежды для охоты и рыбалки.\n'
       + 'В моделях предусмотрены все необходимые функциональные элементы, которые заменяют дополнительную экипировку. Вы просто получаете максимальное удовольствие от вашего хобби.',
     vk_link: 'https://vk.com/remington7_62_tomsk',
-    slug: 'remington',
+    slug: 'ekipirovka',
     address: 'ТРЦ "Изумрудный город"'
       + 'г. Томск, пр. Комсомольский, 13Б'
       + 'Режим работы: с 10:00 до 22:00 ч',
@@ -292,7 +292,7 @@ const testContent = [
     description: 'Вся одежда Remington выполнена из технологичных материалов: не промокает, не продувается, устойчива к механическим повреждениям, обладает хорошими дышащими свойствами, отличный вариант одежды для охоты и рыбалки.\n'
       + 'В моделях предусмотрены все необходимые функциональные элементы, которые заменяют дополнительную экипировку. Вы просто получаете максимальное удовольствие от вашего хобби.',
     vk_link: 'https://vk.com/remington7_62_tomsk',
-    slug: 'remington',
+    slug: 'specuha',
     address: 'ТРЦ "Изумрудный город"'
       + 'г. Томск, пр. Комсомольский, 13Б'
       + 'Режим работы: с 10:00 до 22:00 ч',
@@ -386,7 +386,7 @@ const testContent = [
     description: 'Вся одежда Remington выполнена из технологичных материалов: не промокает, не продувается, устойчива к механическим повреждениям, обладает хорошими дышащими свойствами, отличный вариант одежды для охоты и рыбалки.\n\n'
       + 'В моделях предусмотрены все необходимые функциональные элементы, которые заменяют дополнительную экипировку. Вы просто получаете максимальное удовольствие от вашего хобби.',
     vk_link: 'https://vk.com/remington7_62_tomsk',
-    slug: 'footer',
+    slug: 'remington-762',
     address: 'ТРЦ "Изумрудный город"'
       + 'г. Томск, пр. Комсомольский, 13Б'
       + 'Режим работы: с 10:00 до 22:00 ч',
@@ -481,38 +481,38 @@ const testSlides = [
     slide_id: 1,
     image: 'https://ekipirovka70.ru/storage/cache/slider_1_1900_600.webp',
     description: 'Технологичные товары для охоты, рыбалки, туризма и&nbsp;активного&nbsp;отдыха',
-    button_text: 'Посмотреть новинки',
-    link: 'https://ekipirovka70.ru/',
+    button_title: 'Посмотреть новинки',
+    button_link: 'https://ekipirovka70.ru/',
   },
   {
     slide_id: 2,
     image: 'https://ekipirovka70.ru/storage/cache/slider_1_1900_600.webp',
     description: '',
-    button_text: 'Посмотреть новинки',
-    link: 'https://ekipirovka70.ru/',
+    button_title: 'Посмотреть новинки',
+    button_link: 'https://ekipirovka70.ru/',
   },
   {
     slide_id: 3,
     image: 'https://ekipirovka70.ru/storage/cache/slider_1_1900_600.webp',
     description: 'Технологичные товары для охоты, рыбалки, туризма и&nbsp;активного&nbsp;отдыха',
-    button_text: 'Посмотреть новинки',
-    link: '',
+    button_title: 'Посмотреть новинки',
+    button_link: '',
   },
 ];
 
+const SLIDES_ENDPOINT = '/slides';
+const SHOPS_ENDPOINT = '/slides';
+
 const mainApiSettings = {
-  baseUrl: 'https://api.chertaika.nomoreparties.co',
+  baseUrl: 'https://dev.ekipirovka70.ru/api',
   // baseUrl: 'http://localhost:3000',
   headers: {
     'Content-Type': 'application/json',
   },
-  // endpoints: {
-  //   userEndpoint: USER_ENDPOINT,
-  //   moviesEndpoint: MOVIES_ENDPOINT,
-  //   regEndpoint: REG_ENDPOINT,
-  //   authEndpoint: AUTH_ENDPOINT,
-  //   logoutEndpoint: LOGOUT_ENDPOINT,
-  // },
+  endpoints: {
+    slidesEndpoint: SLIDES_ENDPOINT,
+    shopsEndpoint: SHOPS_ENDPOINT,
+  },
 };
 
 // методы запросов

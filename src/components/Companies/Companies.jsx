@@ -20,7 +20,7 @@ const Companies = () => {
               >
                 <img
                   className="companies__item-img"
-                  src={images[0]}
+                  src={images[0].small}
                   alt="Фото компании"
                 />
                 <h2 className="companies__item-title">{title}</h2>

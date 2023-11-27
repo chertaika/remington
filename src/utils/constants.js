@@ -501,7 +501,7 @@ const testSlides = [
 ];
 
 const SLIDES_ENDPOINT = '/slides';
-const SHOPS_ENDPOINT = '/slides';
+const SHOPS_ENDPOINT = '/shops';
 
 const mainApiSettings = {
   baseUrl: 'https://dev.ekipirovka70.ru/api',

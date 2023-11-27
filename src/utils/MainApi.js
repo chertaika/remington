@@ -8,11 +8,13 @@ class MainApi {
     headers,
     endpoints: {
       slidesEndpoint,
+      shopsEndpoint,
     },
   }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
     this._slidesEndpoint = slidesEndpoint;
+    this._shopsEndpoint = shopsEndpoint;
   }
 
   _checkResponse(res) {
@@ -29,6 +31,10 @@ class MainApi {
 
   getSlides() {
     return this._request(this._slidesEndpoint);
+  }
+
+  getShops() {
+    return this._request(this._shopsEndpoint);
   }
 }
 

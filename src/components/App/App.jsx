@@ -3,18 +3,23 @@ import { useEffect, useState } from 'react';
 import Header from '../Header/Header';
 import ContentContext from '../../contexts/ContentContext';
 import Main from '../Main/Main';
-import { ERROR, testContent } from '../../utils/constants';
+import { ERROR } from '../../utils/constants';
 import Footer from '../Footer/Footer';
 import mainApi from '../../utils/MainApi';
 
 const App = () => {
   const [slides, setSlides] = useState([]);
+  const [shops, setShops] = useState([]);
 
   useEffect(() => {
     (async () => {
       try {
-        const slidesData = await mainApi.getSlides();
+        const [slidesData, shopsData] = await Promise.all([
+          mainApi.getSlides(),
+          mainApi.getShops(),
+        ]);
         setSlides(slidesData);
+        setShops(shopsData);
       } catch (error) {
         console.log(`${ERROR}: ${error}`);
       }
@@ -22,7 +27,7 @@ const App = () => {
   }, []);
 
   return (
-    <ContentContext.Provider value={testContent}>
+    <ContentContext.Provider value={shops}>
       <Header />
       <Main slides={slides} />
       <Footer />

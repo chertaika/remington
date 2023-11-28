@@ -3,14 +3,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
   width: 100%;
-  min-height: 2000px;
 }
 
 @media screen and (max-width: 767px) {
   .content {
-    gap: 30px;
     margin-top: 50px;
   }
 }

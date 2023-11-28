@@ -1,7 +1,7 @@
 import './Catalog.css';
 import Card from '../Card/Card';
 
-const Catalog = ({ goods }) => (
+const Catalog = ({ goods, shopId, onCardClick }) => (
   <article className="catalog">
     <h2 className="catalog__title">Каталог</h2>
     <div className="catalog__card-container">
@@ -17,6 +17,8 @@ const Catalog = ({ goods }) => (
           price={price}
           image={image}
           goodId={goodId}
+          shopId={shopId}
+          onCardClick={onCardClick}
         />
       ))}
     </div>

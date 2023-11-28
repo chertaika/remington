@@ -11,7 +11,7 @@ const AnchorLink = ({ slug, children }) => {
   return (
     <HashLink
       className="anchor-link link-hover"
-      to={`#${slug}`}
+      to={`/#${slug}`}
       scroll={scroll}
     >
       {children}

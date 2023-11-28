@@ -1,6 +1,6 @@
 import { HashLink } from 'react-router-hash-link';
 import { useContext, useState } from 'react';
-import NavLink from './NavLink/NavLink';
+import NavItem from './NavLink/NavItem';
 import './NavTab.css';
 import ContentContext from '../../contexts/ContentContext';
 
@@ -28,7 +28,7 @@ const NavTab = ({ place, isHeaderMin = false }) => {
                 && (
                 <HashLink
                   className="nav-tab__fixed-logo"
-                  to="#top"
+                  to="/#top"
                   smooth
                 >
                   Экипировка
@@ -57,7 +57,7 @@ const NavTab = ({ place, isHeaderMin = false }) => {
           title,
           shop_id: shopId,
         }) => (
-          <NavLink
+          <NavItem
             slug={slug}
             title={title}
             place={place}
@@ -65,13 +65,13 @@ const NavTab = ({ place, isHeaderMin = false }) => {
             onClick={handleOpenMenu}
           />
         ))}
-        <NavLink
+        <NavItem
           slug="promotions"
           title="Акции"
           place={place}
           onClick={handleOpenMenu}
         />
-        <NavLink
+        <NavItem
           slug="about"
           title="О компании"
           place={place}

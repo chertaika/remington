@@ -5,8 +5,9 @@ import Companies from '../Companies/Companies';
 import Subscribe from '../Subscribe/Subscribe';
 import ContentContext from '../../contexts/ContentContext';
 import Shop from '../Shop/Shop';
+import Catalog from '../Catalog/Catalog';
 
-const Main = ({ slides }) => {
+const Main = ({ slides, onCardClick }) => {
   const content = useContext(ContentContext);
   const shopsWithCatalog = content.filter(item => item.catalog);
 
@@ -17,7 +18,6 @@ const Main = ({ slides }) => {
         && (<Companies shops={shopsWithCatalog} />)}
       <Subscribe />
       {shopsWithCatalog.map(({
-        catalog,
         description,
         vk_link: vkLink,
         slug,
@@ -30,10 +30,10 @@ const Main = ({ slides }) => {
           title={title}
           description={description}
           vkLink={vkLink}
-          catalog={catalog}
-          goods={goods}
           key={shopId}
-        />
+        >
+          <Catalog goods={goods} shopId={shopId} onCardClick={onCardClick} />
+        </Shop>
       ))}
     </main>
   );

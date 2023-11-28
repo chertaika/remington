@@ -1,6 +1,7 @@
 const SLIDES_ENDPOINT = '/slides';
 const SHOPS_ENDPOINT = '/shops';
 const SUBSCRIBE_ENDPOINT = '/subscribe';
+const GOODS_ENDPOINT = '/goods';
 
 const mainApiSettings = {
   baseUrl: 'https://dev.ekipirovka70.ru/api',
@@ -11,11 +12,13 @@ const mainApiSettings = {
     slidesEndpoint: SLIDES_ENDPOINT,
     shopsEndpoint: SHOPS_ENDPOINT,
     subscribeEndpoint: SUBSCRIBE_ENDPOINT,
+    goodsEndpoint: GOODS_ENDPOINT,
   },
 };
 
 // коды ошибок запросов
 const ERROR_CODE_422 = 422;
+const ERROR_CODE_487 = 487;
 
 // сообщения запросов
 const REQUEST_ERROR_MESSAGE = 'Что-то пошло не так...';
@@ -37,4 +40,5 @@ export {
   NAME_REGEX,
   REQUEST_ERROR_MESSAGE,
   ERROR_CODE_422,
+  ERROR_CODE_487,
 };

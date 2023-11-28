@@ -1,0 +1,137 @@
+.product {
+  margin-top: 115px;
+  max-width: 1280px;
+  padding: 50px 0;
+  min-height: calc(100vh - 405px);
+  width: 90%;
+  display: grid;
+  align-items: center;
+  gap: 50px 70px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+        "photo title"
+        "photo order"
+        "photo desc";
+}
+
+@media screen and (max-width: 1023px) {
+  .product {
+    gap: 30px 50px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .product {
+    margin-top: 50px;
+    padding: 25px 0;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-template-areas:
+        "title"
+        "photo"
+        "order"
+        "desc";
+  }
+}
+
+.product__photo {
+  grid-area: photo;
+  align-self: start;
+}
+
+.product__image {
+  width: 100%;
+  display: block;
+}
+
+.product__title {
+  grid-area: title;
+  color: #6c6c57;
+  margin: 0;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+@media screen and (max-width: 1023px) {
+  .product__title {
+    font-size: 3.9vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .product__title {
+    font-size: 40px;
+  }
+}
+
+.product__order {
+  grid-area: order;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+@media screen and (max-width: 767px) {
+  .product__order {
+    justify-content: space-between;
+  }
+}
+
+.product__price {
+  color: #6c6c57;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 657px) {
+  .product__price {
+    font-size: 7.5vw;
+  }
+}
+
+.product__desc {
+  align-self: start;
+  grid-area: desc;
+  margin: 0;
+  color: #6c6c57;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.4;
+  white-space: pre-wrap;
+}
+
+.product__ask-btn {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  background-color: #6c6c57;
+  border-radius: 7px;
+  transition: .25s;
+  -webkit-tap-highlight-color: transparent;
+  border: none;
+}
+
+@media screen and (max-width: 657px) {
+  .product__ask-btn {
+    padding: 12px;
+  }
+}
+
+.product__btn-text {
+  background-image: url("../../assets/images/ask.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 22px;
+  aspect-ratio: 127/30;
+}
+
+@media screen and (max-width: 657px) {
+  .product__btn-text {
+    height: 6vw;
+  }
+}

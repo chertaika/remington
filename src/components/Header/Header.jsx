@@ -20,7 +20,9 @@ const Header = () => {
       {!isHeaderMin
         && (
         <div className="header__company-info">
-          <img className="header__logo" src={headerLogo} alt="логотип" />
+          <Link to="/">
+            <img className="header__logo" src={headerLogo} alt="логотип" />
+          </Link>
           <h1 className="header__title">Центр профессиональной экипировки</h1>
           <Link
             className="header__social-link button-hover"

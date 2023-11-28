@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import useFormValidator from '../../hooks/useFormValidator';
 import {
-  EMAIL_REGEX,
+  EMAIL_REGEX, ERROR_CODE_487,
   ERROR_CODE_422,
   NAME_REGEX,
   REQUEST_ERROR_MESSAGE,
@@ -38,7 +38,7 @@ const Subscribe = () => {
         }
         if (errors.name) setErrorMessages({ name: errors.name.join(' ') });
         if (errors.email) setErrorMessages({ email: errors.email.join(' ') });
-      } else if (status === 102) {
+      } else if (status === ERROR_CODE_487) {
         setSubscribeResult({ status: 'fail', message });
       } else {
         setSubscribeResult({ status: 'fail', message: REQUEST_ERROR_MESSAGE });

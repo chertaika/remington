@@ -10,6 +10,7 @@ class MainApi {
       slidesEndpoint,
       shopsEndpoint,
       subscribeEndpoint,
+      goodsEndpoint,
     },
   }) {
     this._baseUrl = baseUrl;
@@ -17,6 +18,7 @@ class MainApi {
     this._slidesEndpoint = slidesEndpoint;
     this._shopsEndpoint = shopsEndpoint;
     this._subscribeEndpoint = subscribeEndpoint;
+    this._goodsEndpoint = goodsEndpoint;
   }
 
   async _checkResponse(res) {
@@ -39,6 +41,10 @@ class MainApi {
 
   getShops() {
     return this._request(this._shopsEndpoint);
+  }
+
+  getGood(endpoint) {
+    return this._request(`${this._goodsEndpoint}/${endpoint}`);
   }
 
   subscribe({ name, email }) {

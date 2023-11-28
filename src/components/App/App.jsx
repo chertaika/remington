@@ -1,15 +1,30 @@
 import './App.css';
 import { useEffect, useState } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import ContentContext from '../../contexts/ContentContext';
 import Main from '../Main/Main';
 import { ERROR } from '../../utils/constants';
 import Footer from '../Footer/Footer';
 import mainApi from '../../utils/MainApi';
+import Product from '../Product/Product';
 
 const App = () => {
   const [slides, setSlides] = useState([]);
   const [shops, setShops] = useState([]);
+  const [currentGood, setCurrentGood] = useState({});
+
+  const navigate = useNavigate();
+
+  const handleCardClick = async (id) => {
+    try {
+      const good = await mainApi.getGood(id);
+      setCurrentGood(good);
+      navigate(`/good/${id}`);
+    } catch (error) {
+      console.log(`${ERROR}: ${error.message}`);
+    }
+  };
 
   useEffect(() => {
     (async () => {
@@ -29,7 +44,16 @@ const App = () => {
   return (
     <ContentContext.Provider value={shops}>
       <Header />
-      <Main slides={slides} />
+      <Routes>
+        <Route
+          path="/"
+          element={<Main slides={slides} onCardClick={handleCardClick} />}
+        />
+        <Route
+          path="good/:id"
+          element={<Product currentGood={currentGood} />}
+        />
+      </Routes>
       <Footer />
     </ContentContext.Provider>
   );

@@ -7,7 +7,7 @@ import ContentContext from '../../contexts/ContentContext';
 const NavTab = ({ place, isHeaderMin = false }) => {
   const [isMenuOpened, setIsMenuOpened] = useState(false);
 
-  const content = useContext(ContentContext);
+  const shopsWithCatalog = useContext(ContentContext).filter(item => item.catalog);
 
   const handleOpenMenu = () => {
     const currentWidth = window.innerWidth;
@@ -52,25 +52,19 @@ const NavTab = ({ place, isHeaderMin = false }) => {
         )}
 
       <ul className={`nav-tab__menu-options ${place === 'footer' ? 'nav-tab__menu-options_type_footer' : ''}`}>
-        {content.map(({
-          catalog,
+        {shopsWithCatalog.map(({
           slug,
           title,
           shop_id: shopId,
-        }) => {
-          if (catalog) {
-            return (
-              <NavLink
-                slug={slug}
-                title={title}
-                place={place}
-                key={shopId}
-                onClick={handleOpenMenu}
-              />
-            );
-          }
-          return false;
-        })}
+        }) => (
+          <NavLink
+            slug={slug}
+            title={title}
+            place={place}
+            key={shopId}
+            onClick={handleOpenMenu}
+          />
+        ))}
         <NavLink
           slug="promotions"
           title="Акции"

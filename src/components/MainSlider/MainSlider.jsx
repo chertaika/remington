@@ -19,14 +19,13 @@ const MainSlider = ({ slides }) => (
         delay: 8000,
         disableOnInteraction: true,
       }}
-      slidesPerView={1}
     >
       {slides.map(slide => (
         <SwiperSlide key={slide.slide_id}>
           <img
             className="main-swiper__img"
             src={slide.image}
-            alt="название слайдера"
+            alt="Cлайд"
           />
           <div className="main-swiper__info">
             {slide.description

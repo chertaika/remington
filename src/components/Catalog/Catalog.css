@@ -1,0 +1,35 @@
+.catalog {
+  width: 100%;
+  padding-bottom: 100px;
+}
+
+@media screen and (max-width: 1023px) {
+  .catalog {
+    padding-bottom: 50px;
+  }
+}
+
+.catalog__title {
+  font-size: 48px;
+  color: #6c6c57;
+  font-weight: 400;
+  margin: 0 0 20px;
+}
+
+@media screen and (max-width: 1023px) {
+  .catalog__title {
+    font-size: 4.7vw;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .catalog__title {
+    font-size: 7.5vw;
+  }
+}
+
+.catalog__card-container {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+}

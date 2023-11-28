@@ -1,11 +1,14 @@
 import './Shop.css';
 import { Link } from 'react-router-dom';
+import Catalog from '../Catalog/Catalog';
 
 const Shop = ({
   title,
   description,
   vkLink,
   slug,
+  catalog,
+  goods,
 }) => (
   <section className="shop" id={slug}>
     <div className="shop__description">
@@ -23,6 +26,10 @@ const Shop = ({
         )}
       </div>
     </div>
+    {catalog && (
+      <Catalog goods={goods} />
+    )}
+
   </section>
 );
 

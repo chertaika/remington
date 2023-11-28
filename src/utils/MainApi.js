@@ -1,5 +1,5 @@
 import {
-  mainApiSettings,
+  mainApiSettings, METHOD_POST,
 } from './constants';
 
 class MainApi {
@@ -9,19 +9,23 @@ class MainApi {
     endpoints: {
       slidesEndpoint,
       shopsEndpoint,
+      subscribeEndpoint,
     },
   }) {
     this._baseUrl = baseUrl;
     this._headers = headers;
     this._slidesEndpoint = slidesEndpoint;
     this._shopsEndpoint = shopsEndpoint;
+    this._subscribeEndpoint = subscribeEndpoint;
   }
 
-  _checkResponse(res) {
+  async _checkResponse(res) {
     if (res.ok) {
       return res.json();
     }
-    return Promise.reject(res.status);
+    const error = await res.json();
+    error.status = res.status;
+    return Promise.reject(error);
   }
 
   async _request(endpoint, options) {
@@ -35,6 +39,16 @@ class MainApi {
 
   getShops() {
     return this._request(this._shopsEndpoint);
+  }
+
+  subscribe({ name, email }) {
+    return this._request(this._subscribeEndpoint, {
+      method: METHOD_POST,
+      body: JSON.stringify({
+        name,
+        email,
+      }),
+    });
   }
 }
 

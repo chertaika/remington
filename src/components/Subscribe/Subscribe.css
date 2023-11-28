@@ -92,14 +92,9 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 12px;
+  min-height: 24px;
   padding: 5px 0;
   transition: opacity .2s;
-}
-
-@media screen and (max-width: 767px) {
-  .subscribe__input-error {
-    min-height: 24px;
-  }
 }
 
 .subscribe__submit-btn {
@@ -180,4 +175,8 @@
   font-size: 22px;
   font-weight: 400;
   line-height: 1;
+}
+
+.subscribe__status-message_type_error {
+  color: red;
 }

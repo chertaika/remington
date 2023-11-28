@@ -1,18 +1,49 @@
 import './Subscribe.css';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import useFormValidator from '../../hooks/useFormValidator';
-import { EMAIL_REGEX, NAME_REGEX } from '../../utils/constants';
+import {
+  EMAIL_REGEX,
+  ERROR_CODE_422,
+  NAME_REGEX,
+  REQUEST_ERROR_MESSAGE,
+} from '../../utils/constants';
+import mainApi from '../../utils/MainApi';
 
 const Subscribe = () => {
+  const [subscribeResult, setSubscribeResult] = useState({ status: '', message: '' });
   const {
     inputValues,
     errorMessages,
+    setErrorMessages,
     isValid,
     handleChange,
+    resetForm,
   } = useFormValidator();
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
+    try {
+      const { message } = await mainApi.subscribe(inputValues);
+      setSubscribeResult({ status: 'success', message });
+      resetForm();
+    } catch ({ errors, status, message }) {
+      if (status === ERROR_CODE_422) {
+        if (errors.name && errors.email) {
+          setErrorMessages({
+            name: errors.name,
+            email: errors.email,
+          });
+          return;
+        }
+        if (errors.name) setErrorMessages({ name: errors.name.join(' ') });
+        if (errors.email) setErrorMessages({ email: errors.email.join(' ') });
+      } else if (status === 102) {
+        setSubscribeResult({ status: 'fail', message });
+      } else {
+        setSubscribeResult({ status: 'fail', message: REQUEST_ERROR_MESSAGE });
+      }
+    }
   };
 
   return (
@@ -71,8 +102,8 @@ const Subscribe = () => {
           Политикой конфиденциальности
         </Link>
       </p>
-      <div className="subscribe__status">
-        <p className="subscribe__status-message" />
+      <div className={`subscribe__status ${subscribeResult.message ? 'subscribe__status_visible' : ''}`}>
+        <p className={`subscribe__status-message  ${subscribeResult.status === 'fail' ? 'subscribe__status-message_type_error' : ''}`}>{subscribeResult.message}</p>
       </div>
 
     </section>

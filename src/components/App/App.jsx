@@ -21,7 +21,7 @@ const App = () => {
         setSlides(slidesData);
         setShops(shopsData);
       } catch (error) {
-        console.log(`${ERROR}: ${error}`);
+        console.log(`${ERROR}: ${error.message}`);
       }
     })();
   }, []);

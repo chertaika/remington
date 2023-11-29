@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import MainSlider from '../MainSlider/MainSlider';
 import './Main.css';
 import Companies from '../Companies/Companies';
@@ -8,10 +8,24 @@ import Shop from '../Shop/Shop';
 import Catalog from '../Catalog/Catalog';
 import ButtonUp from '../ButtonUp/ButtonUp';
 import About from '../About/About';
+import SliderPopup from '../SliderPopup/SliderPopup';
 
 const Main = ({ slides, onCardClick }) => {
   const content = useContext(ContentContext);
+  const [thumbs, setThumbs] = useState(null);
+  const [isSliderPopupOpen, setIsSliderPopupOpen] = useState(false);
+  const [currentSlides, setCurrentSlides] = useState([]);
   const shopsWithCatalog = content.filter(item => item.catalog);
+
+  const handleCompanyImageClick = (images) => {
+    setIsSliderPopupOpen(true);
+    setCurrentSlides(images);
+  };
+
+  const closeAllPopups = () => {
+    setIsSliderPopupOpen(false);
+    setThumbs(null);
+  };
 
   return (
     <main className="content">
@@ -37,7 +51,13 @@ const Main = ({ slides, onCardClick }) => {
           <Catalog goods={goods} shopId={shopId} onCardClick={onCardClick} />
         </Shop>
       ))}
-      <About />
+      <About onOpenPopup={handleCompanyImageClick} setThumbs={setThumbs} />
+      <SliderPopup
+        thumbs={thumbs}
+        isOpen={isSliderPopupOpen}
+        onClose={closeAllPopups}
+        slides={currentSlides}
+      />
       <ButtonUp />
     </main>
   );

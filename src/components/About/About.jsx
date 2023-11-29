@@ -6,8 +6,12 @@ import React, { useContext } from 'react';
 import { Pagination } from 'swiper/modules';
 import ContentContext from '../../contexts/ContentContext';
 
-const About = () => {
+const About = ({ onOpenPopup, setThumbs }) => {
   const content = useContext(ContentContext);
+
+  const handleClick = () => {
+    onOpenPopup(content[0]?.images);
+  };
 
   return (
     <section className="about" id="about">
@@ -19,8 +23,7 @@ const About = () => {
         <iframe
           src="https://yandex.ru/map-widget/v1/?um=constructor%3Adbed70d9a23376240c7a179911da5dc7b02732fe898301e1dc56171999a3b9bb&amp;source=constructor"
           title="Карта"
-          width="100%"
-          height="100%"
+          className="about__frame"
         />
       </div>
       <div className="about__info">
@@ -37,6 +40,7 @@ const About = () => {
             slidesPerView="auto"
             spaceBetween={10}
             className="about__slider"
+            onClick={setThumbs}
             breakpoints={{
               768: {
                 spaceBetween: '7%',
@@ -44,12 +48,11 @@ const About = () => {
               },
             }}
           >
-            {content[0]?.images.map((slide, index) => (
-              // eslint-disable-next-line react/no-array-index-key
-              <SwiperSlide key={index} className="about__slide">
+            {content[0]?.images.map(({ image_id: imageId, small }) => (
+              <SwiperSlide key={imageId} className="about__slide" onClick={handleClick}>
                 <img
                   className="about__img thumb"
-                  src={slide.small || ''}
+                  src={small}
                   alt="фото магазина"
                 />
               </SwiperSlide>

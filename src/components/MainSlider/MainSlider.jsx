@@ -12,7 +12,6 @@ const MainSlider = ({ slides }) => (
       modules={[Autoplay, Pagination, Navigation]}
       loop
       speed={1000}
-      keyboard
       navigation
       pagination={{ clickable: true }}
       autoplay={{

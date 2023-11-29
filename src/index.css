@@ -56,3 +56,17 @@
     margin-top: 0;
   }
 }
+
+.swiper {
+  display: flex;
+  overflow: hidden;
+}
+
+.swiper-wrapper {
+  display: flex;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  touch-action: pan-y;
+}

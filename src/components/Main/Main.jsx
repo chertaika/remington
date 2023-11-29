@@ -7,6 +7,7 @@ import ContentContext from '../../contexts/ContentContext';
 import Shop from '../Shop/Shop';
 import Catalog from '../Catalog/Catalog';
 import ButtonUp from '../ButtonUp/ButtonUp';
+import About from '../About/About';
 
 const Main = ({ slides, onCardClick }) => {
   const content = useContext(ContentContext);
@@ -36,6 +37,7 @@ const Main = ({ slides, onCardClick }) => {
           <Catalog goods={goods} shopId={shopId} onCardClick={onCardClick} />
         </Shop>
       ))}
+      <About />
       <ButtonUp />
     </main>
   );

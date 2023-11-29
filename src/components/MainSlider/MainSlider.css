@@ -2,23 +2,15 @@
   align-self: normal;
 }
 
-.swiper {
-  display: flex;
+.main-swiper .swiper {
   position: relative;
-  overflow: hidden;
 }
 
-.swiper-wrapper {
-  display: flex;
-}
-
-.swiper-slide {
-  flex-shrink: 0;
+.main-swiper .swiper-slide {
   position: relative;
-  touch-action: pan-y;
 }
 
-.swiper-button-next {
+.main-swiper .swiper-button-next {
   position: absolute;
   top: calc(50% - 27px);
   width: 30px;
@@ -30,7 +22,7 @@
   right: 10px;
 }
 
-.swiper-button-prev {
+.main-swiper .swiper-button-prev {
   position: absolute;
   top: calc(50% - 27px);
   width: 30px;
@@ -42,7 +34,7 @@
   left: 10px;
 }
 
-.swiper-pagination {
+.main-swiper .swiper-pagination {
   position: absolute;
   bottom: 18px;
   left: 5%;
@@ -52,7 +44,7 @@
   width: 90%;
 }
 
-.swiper-pagination-bullet {
+.main-swiper .swiper-pagination-bullet {
   background-color: #1e2b1d;
   width: 10px;
   aspect-ratio: 1/1;
@@ -60,7 +52,7 @@
   border-radius: 50%;
 }
 
-.swiper-pagination-bullet-active {
+.main-swiper .swiper-pagination-bullet-active {
   background-color: #fff;
 }
 

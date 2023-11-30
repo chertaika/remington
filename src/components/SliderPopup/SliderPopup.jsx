@@ -1,17 +1,10 @@
 import './SliderPopup.css';
-// eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useEffect } from 'react';
-import {
-  EffectFade, Keyboard,
-  Navigation,
-  Pagination,
-  Thumbs,
-// eslint-disable-next-line import/no-unresolved
-} from 'swiper/modules';
+import { Keyboard, Navigation, Pagination } from 'swiper';
 
 const SliderPopup = ({
-  thumbs,
+  setControlledSwiper,
   onClose,
   isOpen,
   slides,
@@ -22,7 +15,9 @@ const SliderPopup = ({
 
   useEffect(() => {
     const handleEscClose = (evt) => {
-      if (evt.key === 'Escape') onClose();
+      if (evt.key === 'Escape') {
+        onClose();
+      }
     };
     if (isOpen) document.addEventListener('keydown', handleEscClose);
 
@@ -43,10 +38,9 @@ const SliderPopup = ({
         <Swiper
           slidesPerView={1}
           spaceBetween={10}
-          effect="fade"
-          modules={[Pagination, Navigation, Thumbs, EffectFade, Keyboard]}
-          thumbs={{ thumbs }}
+          modules={[Pagination, Navigation, Keyboard]}
           pagination={{ clickable: true }}
+          onSwiper={setControlledSwiper}
           className="slider-popup__slider"
           keyboard
           navigation

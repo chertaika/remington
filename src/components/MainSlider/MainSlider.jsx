@@ -1,10 +1,8 @@
-// eslint-disable-next-line import/no-unresolved
 import { Swiper, SwiperSlide } from 'swiper/react';
-// eslint-disable-next-line import/no-unresolved
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import './MainSlider.css';
+import { Autoplay, Navigation, Pagination } from 'swiper';
 
 const MainSlider = ({ slides }) => (
   <section className="main-swiper">

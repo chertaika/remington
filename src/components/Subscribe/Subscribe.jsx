@@ -29,15 +29,10 @@ const Subscribe = () => {
       resetForm();
     } catch ({ errors, status, message }) {
       if (status === ERROR_CODE_422) {
-        if (errors.name && errors.email) {
-          setErrorMessages({
-            name: errors.name,
-            email: errors.email,
-          });
-          return;
-        }
-        if (errors.name) setErrorMessages({ name: errors.name.join(' ') });
-        if (errors.email) setErrorMessages({ email: errors.email.join(' ') });
+        setErrorMessages({
+          name: errors.name ? errors.name.join(' ') : '',
+          email: errors.email ? errors.email.join(' ') : '',
+        });
       } else if (status === ERROR_CODE_487) {
         setSubscribeResult({ status: 'fail', message });
       } else {

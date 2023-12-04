@@ -197,3 +197,14 @@
   font-size: 12px;
   margin: 0;
 }
+
+.feedback-popup__message {
+  font-family: Inter, Arial, sans-serif;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.2;
+}
+
+.feedback-popup__message_type_error {
+  color: red;
+}

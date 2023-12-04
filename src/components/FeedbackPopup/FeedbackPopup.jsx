@@ -1,42 +1,74 @@
 import './FeedbackPopup.css';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Inputmask from 'inputmask';
 import useFormValidator from '../../hooks/useFormValidator';
 import Popup from '../Popup/Popup';
-import { EMAIL_REGEX, NAME_REGEX } from '../../utils/constants';
+import {
+  EMAIL_REGEX,
+  ERROR_CODE_422,
+  ERROR_CODE_487,
+  NAME_REGEX,
+  REQUEST_ERROR_MESSAGE,
+} from '../../utils/constants';
+import mainApi from '../../utils/MainApi';
 
 const FeedbackPopup = ({
   questionTitle, onClose, isOpen, onClearQuestion,
 }) => {
+  const [feedbackResult, setFeedbackResult] = useState({ status: '', message: '' });
   const phoneRef = useRef();
 
   const {
     inputValues,
     errorMessages,
     setInputValues,
+    setErrorMessages,
     isValid,
     handleChange,
     resetForm,
   } = useFormValidator();
 
+  const handleSubmit = async (evt) => {
+    evt.preventDefault();
+    try {
+      const { message } = await mainApi.sendFeedback(inputValues);
+      setFeedbackResult({ status: 'success', message });
+      resetForm();
+    } catch ({ errors, status, message }) {
+      if (status === ERROR_CODE_422) {
+        setErrorMessages({
+          name: errors.name ? errors.name.join(' ') : '',
+          email: errors.email ? errors.email.join(' ') : '',
+          number: errors.number ? errors.number.join(' ') : '',
+          comment: errors.comment ? errors.comment.join(' ') : '',
+        });
+      } else if (status === ERROR_CODE_487) {
+        setFeedbackResult({ status: 'fail', message });
+      } else {
+        setFeedbackResult({ status: 'fail', message: REQUEST_ERROR_MESSAGE });
+      }
+    }
+  };
+
   useEffect(() => {
-    resetForm();
-    setInputValues({ question: questionTitle });
+    setFeedbackResult({ status: '', message: '' });
+  }, [isOpen]);
+
+  useEffect(() => {
+    setInputValues({ ...inputValues, question: questionTitle });
   }, [questionTitle]);
 
   useEffect(() => {
     Inputmask({ showMaskOnHover: false }).mask(phoneRef.current);
   }, [phoneRef]);
 
-  console.log(inputValues);
-
   return (
     <Popup isOpen={isOpen} onClose={onClose}>
       <div className="feedback-popup">
         <h2 className="feedback-popup__title">Форма обратной связи</h2>
         <p className="feedback-popup__subtitle">Заполните обязательные поля, и наш специалист ответит на интересующие Вас вопросы.</p>
-        <form name="feedback-popup" className="feedback-popup__form">
-          <div className={`feedback-popup__question ${questionTitle ? 'feedback-popup__question_visible' : ''}`}>
+        <form name="feedback-popup" className="feedback-popup__form" onSubmit={handleSubmit}>
+          <div className={`feedback-popup__question ${inputValues.question ? 'feedback-popup__question_visible' : ''}`}>
             <input
               type="text"
               name="question"
@@ -90,7 +122,6 @@ const FeedbackPopup = ({
                 ref={phoneRef}
                 placeholder="+7 (___) ___-__-__"
                 data-inputmask="'mask': '+7 (999) 999-99-99'"
-                pattern="^\+7\s\([0-9]{3}\)\s[0-9]{3}-[0-9]{2}-[0-9]{2}$"
                 className={`feedback-popup__input ${errorMessages.number ? 'feedback-popup__input_type_error' : ''}`}
                 value={inputValues.number ?? ''}
                 onChange={handleChange}
@@ -119,6 +150,7 @@ const FeedbackPopup = ({
           />
         </form>
         <p className="feedback-popup__note">* поля обязательные для заполнения</p>
+        <div className={`feedback-popup__message ${feedbackResult.status === 'fail' ? 'feedback-popup__message_type_error' : ''}`}>{feedbackResult.message}</div>
       </div>
     </Popup>
   );

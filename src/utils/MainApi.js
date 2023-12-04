@@ -11,6 +11,7 @@ class MainApi {
       shopsEndpoint,
       subscribeEndpoint,
       goodsEndpoint,
+      feedbackEndpoint,
     },
   }) {
     this._baseUrl = baseUrl;
@@ -19,6 +20,7 @@ class MainApi {
     this._shopsEndpoint = shopsEndpoint;
     this._subscribeEndpoint = subscribeEndpoint;
     this._goodsEndpoint = goodsEndpoint;
+    this._feedbackEndpoint = feedbackEndpoint;
   }
 
   async _checkResponse(res) {
@@ -53,6 +55,25 @@ class MainApi {
       body: JSON.stringify({
         name,
         email,
+      }),
+    });
+  }
+
+  sendFeedback({
+    question = '',
+    name,
+    email,
+    number = '',
+    comment,
+  }) {
+    return this._request(this._feedbackEndpoint, {
+      method: METHOD_POST,
+      body: JSON.stringify({
+        question,
+        name,
+        email,
+        number,
+        comment,
       }),
     });
   }

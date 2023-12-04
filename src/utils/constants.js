@@ -2,6 +2,7 @@ const SLIDES_ENDPOINT = '/slides';
 const SHOPS_ENDPOINT = '/shops';
 const SUBSCRIBE_ENDPOINT = '/subscribe';
 const GOODS_ENDPOINT = '/goods';
+const FEEDBACK_ENDPOINT = '/feedback';
 
 const mainApiSettings = {
   baseUrl: 'https://dev.ekipirovka70.ru/api',
@@ -13,6 +14,7 @@ const mainApiSettings = {
     shopsEndpoint: SHOPS_ENDPOINT,
     subscribeEndpoint: SUBSCRIBE_ENDPOINT,
     goodsEndpoint: GOODS_ENDPOINT,
+    feedbackEndpoint: FEEDBACK_ENDPOINT,
   },
 };
 

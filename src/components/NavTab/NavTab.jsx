@@ -46,7 +46,13 @@ const NavTab = ({ place, isHeaderMin = false }) => {
                   <div className="nav-tab__bar nav-tab__bar_top" />
                 </div>
               </div>
-              <h1 className="nav-tab__mobile-title">Экипировка</h1>
+              <HashLink
+                className="nav-tab__mobile-logo"
+                to="/#top"
+                smooth
+              >
+                <h1 className="nav-tab__mobile-title">Экипировка</h1>
+              </HashLink>
             </div>
           </>
         )}

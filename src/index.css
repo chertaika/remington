@@ -1,5 +1,6 @@
 @import url(./assets/vendor/normalize.css);
 @import url(./assets/fonts/Bebas_Neue/bebas_neue.css);
+@import url(./assets/fonts/Inter/inter.css);
 
 .page {
   width: 100%;
@@ -31,8 +32,12 @@
   cursor: pointer;
 }
 
+.button-hover:focus-visible {
+  outline: none;
+}
+
 @media screen and (hover: hover) {
-  .button-hover:hover {
+  .button-hover:enabled:hover {
     background-color: #cbba92;
   }
 }

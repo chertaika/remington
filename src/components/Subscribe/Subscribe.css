@@ -98,26 +98,18 @@
 }
 
 .subscribe__submit-btn {
-  width: 112px;
+  width: 134px;
   height: 45px;
+  background-image: url("../../assets/images/subscribe.svg");
   background-color: #6c6c57;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: auto 15px;
+  background-size: auto 20px;
   border: none;
   border-radius: 7px;
-  /*color: red;*/
-  /*font-size: 20px;*/
-  /*font-weight: 400;*/
-  /*height: 45px;*/
-  /*line-height: 1;*/
   transition: .25s;
   -webkit-tap-highlight-color: transparent;
   cursor: pointer;
-}
-
-.subscribe__submit-btn {
-  background-image: url("../../assets/images/subscribe.svg");
 }
 
 @media screen and (max-width: 767px) {
@@ -127,12 +119,8 @@
 }
 
 .subscribe__submit-btn:disabled {
-  opacity: .2;
-  cursor: auto;
-}
-
-.subscribe__submit-btn:disabled:hover {
-  background-color: #6c6c57;
+  background-color: #e2e2dd;
+  cursor: not-allowed;
 }
 
 .subscribe__safe {

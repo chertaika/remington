@@ -1,21 +1,22 @@
 import './Card.css';
+import { Link } from 'react-router-dom';
 
 const Card = ({
   title,
   image,
   price,
   goodId,
-  onCardClick,
+  onAskButtonClick,
 }) => {
-  const handleClick = () => {
-    onCardClick(goodId);
+  const handleQuestionClick = () => {
+    onAskButtonClick(title);
   };
 
   return (
     <div className="card">
-      <div
+      <Link
         className="card__desc"
-        onClick={handleClick}
+        to={`/good/${goodId}`}
       >
         <img
           className="card__img"
@@ -25,12 +26,13 @@ const Card = ({
         <h3 className="card__title">
           {title}
         </h3>
-      </div>
+      </Link>
       <div className="card__order">
         <div className="card__price">{`${price}P`}</div>
         <button
           className="card__ask-btn button-hover"
           type="button"
+          onClick={handleQuestionClick}
           aria-label="Кнопка Спросить"
         >
           <span className="card__btn-text" />

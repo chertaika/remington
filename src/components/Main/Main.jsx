@@ -9,7 +9,11 @@ import Catalog from '../Catalog/Catalog';
 import ButtonUp from '../ButtonUp/ButtonUp';
 import About from '../About/About';
 
-const Main = ({ slides, onCardClick }) => {
+const Main = ({
+  slides,
+  questionTitle,
+  onAskButtonClick,
+}) => {
   const content = useContext(ContentContext);
 
   const shopsWithCatalog = content.filter(item => item.catalog);
@@ -35,10 +39,14 @@ const Main = ({ slides, onCardClick }) => {
           vkLink={vkLink}
           key={shopId}
         >
-          <Catalog goods={goods} shopId={shopId} onCardClick={onCardClick} />
+          <Catalog
+            goods={goods}
+            shopId={shopId}
+            onAskButtonClick={onAskButtonClick}
+          />
         </Shop>
       ))}
-      <About />
+      <About questionTitle={questionTitle} />
       <ButtonUp />
     </main>
   );

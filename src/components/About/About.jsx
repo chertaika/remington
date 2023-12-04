@@ -3,8 +3,9 @@ import React, { useContext, useState } from 'react';
 import ContentContext from '../../contexts/ContentContext';
 import CompanyInfo from '../CompanyInfo/CompanyInfo';
 import SliderPopup from '../SliderPopup/SliderPopup';
+import FeedbackPopup from '../FeedbackPopup/FeedbackPopup';
 
-const About = () => {
+const About = ({ questionTitle }) => {
   const shops = useContext(ContentContext);
   const [controlledSwiper, setControlledSwiper] = useState(null);
   const [isSliderPopupOpen, setIsSliderPopupOpen] = useState(false);
@@ -15,7 +16,7 @@ const About = () => {
     setCurrentSlides(images);
   };
 
-  const closeAllPopups = () => {
+  const closeSliderPopup = () => {
     setIsSliderPopupOpen(false);
   };
 
@@ -55,10 +56,11 @@ const About = () => {
           ))}
         </div>
       </section>
+      <FeedbackPopup questionTitle={questionTitle} />
       <SliderPopup
         setControlledSwiper={getControlledSlider}
         isOpen={isSliderPopupOpen}
-        onClose={closeAllPopups}
+        onClose={closeSliderPopup}
         slides={currentSlides}
       />
     </>

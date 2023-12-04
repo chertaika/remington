@@ -1,7 +1,10 @@
 import './Product.css';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 const Product = ({
+  getCurrentProduct,
+  onAskButtonClick,
   currentGood: {
     title,
     description,
@@ -9,7 +12,13 @@ const Product = ({
     image,
   },
 }) => {
+  const { id } = useParams();
+  const handleQuestionClick = () => {
+    onAskButtonClick(title);
+  };
+
   useEffect(() => {
+    getCurrentProduct(id);
     window.scrollTo(0, 0);
   }, []);
 
@@ -27,6 +36,7 @@ const Product = ({
           className="product__ask-btn button-hover"
           type="button"
           aria-label="Кнопка Спросить"
+          onClick={handleQuestionClick}
         >
           <span className="product__btn-text" />
         </button>

@@ -55,7 +55,6 @@ const Subscribe = () => {
         <label className="subscribe__field">
           <input
             className={`subscribe__input ${errorMessages.name ? 'subscribe__input_type_error' : ''}`}
-            id="name-input"
             placeholder="Имя"
             name="name"
             type="text"
@@ -72,7 +71,6 @@ const Subscribe = () => {
         <label className="subscribe__field">
           <input
             className={`subscribe__input ${errorMessages.email ? 'subscribe__input_type_error' : ''}`}
-            id="email-input"
             placeholder="Email"
             name="email"
             type="email"

@@ -60,9 +60,10 @@
 }
 
 .shop__paragraph {
+  font-family: Inter, Arial, sans-serif;
   margin: 0;
   line-height: 1.4;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: normal;
   color: #6c6c57;
   white-space: pre-wrap;

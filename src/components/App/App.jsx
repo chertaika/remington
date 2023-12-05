@@ -11,6 +11,7 @@ import Product from '../Product/Product';
 import FeedbackPopup from '../FeedbackPopup/FeedbackPopup';
 import FeedbackButton from '../FeedbackButton/FeedbackButton';
 import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
+import PageNotFound from '../PageNotFound/PageNotFound';
 
 const App = () => {
   const [slides, setSlides] = useState([]);
@@ -94,6 +95,10 @@ const App = () => {
               privacy={privacy}
             />
           )}
+        />
+        <Route
+          path="*"
+          element={<PageNotFound />}
         />
       </Routes>
       <Footer />

@@ -11,7 +11,6 @@ import About from '../About/About';
 
 const Main = ({
   slides,
-  questionTitle,
   onAskButtonClick,
 }) => {
   const content = useContext(ContentContext);
@@ -46,7 +45,7 @@ const Main = ({
           />
         </Shop>
       ))}
-      <About questionTitle={questionTitle} />
+      <About />
       <ButtonUp />
     </main>
   );

@@ -9,26 +9,31 @@ import Footer from '../Footer/Footer';
 import mainApi from '../../utils/MainApi';
 import Product from '../Product/Product';
 import FeedbackPopup from '../FeedbackPopup/FeedbackPopup';
+import FeedbackButton from '../FeedbackButton/FeedbackButton';
 
 const App = () => {
   const [slides, setSlides] = useState([]);
   const [shops, setShops] = useState([]);
   const [currentGood, setCurrentGood] = useState({});
-  const [questionTitle, setQuestionTitle] = useState('');
-  const [isAskPopupOpen, setIsAskPopupOpen] = useState(false);
+  const [questionSubject, setQuestionSubject] = useState('');
+  const [isFeedbackPopupOpen, setIsFeedbackPopupOpen] = useState(false);
 
-  const handleAskButtonClick = (title) => {
-    setQuestionTitle(title);
-    setIsAskPopupOpen(true);
+  const openFeedbackPopup = () => {
+    setIsFeedbackPopupOpen(true);
   };
 
-  const handleClearQuestion = () => {
-    setQuestionTitle('');
+  const handleAskButtonClick = (title) => {
+    setQuestionSubject(title);
+    openFeedbackPopup();
+  };
+
+  const handleClearQuestionSubject = () => {
+    setQuestionSubject('');
   };
 
   const closeAskPopup = () => {
-    setIsAskPopupOpen(false);
-    setQuestionTitle('');
+    setIsFeedbackPopupOpen(false);
+    setQuestionSubject('');
   };
 
   const getCurrentProduct = async (id) => {
@@ -64,7 +69,6 @@ const App = () => {
           element={(
             <Main
               slides={slides}
-              questionTitle={questionTitle}
               onAskButtonClick={handleAskButtonClick}
             />
         )}
@@ -77,15 +81,26 @@ const App = () => {
               onAskButtonClick={handleAskButtonClick}
               getCurrentProduct={getCurrentProduct}
             />
-        )}
+         )}
+        />
+        <Route
+          path="privacy-policy"
+          element={(
+            <Product
+              currentGood={currentGood}
+              onAskButtonClick={handleAskButtonClick}
+              getCurrentProduct={getCurrentProduct}
+            />
+          )}
         />
       </Routes>
       <Footer />
+      <FeedbackButton onClick={openFeedbackPopup} />
       <FeedbackPopup
         onClose={closeAskPopup}
-        isOpen={isAskPopupOpen}
-        questionTitle={questionTitle}
-        onClearQuestion={handleClearQuestion}
+        isOpen={isFeedbackPopupOpen}
+        questionSubject={questionSubject}
+        onClearQuestionSubject={handleClearQuestionSubject}
       />
     </ContentContext.Provider>
   );

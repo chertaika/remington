@@ -3,9 +3,8 @@ import React, { useContext, useState } from 'react';
 import ContentContext from '../../contexts/ContentContext';
 import CompanyInfo from '../CompanyInfo/CompanyInfo';
 import SliderPopup from '../SliderPopup/SliderPopup';
-import FeedbackPopup from '../FeedbackPopup/FeedbackPopup';
 
-const About = ({ questionTitle }) => {
+const About = () => {
   const shops = useContext(ContentContext);
   const [controlledSwiper, setControlledSwiper] = useState(null);
   const [isSliderPopupOpen, setIsSliderPopupOpen] = useState(false);
@@ -56,7 +55,6 @@ const About = ({ questionTitle }) => {
           ))}
         </div>
       </section>
-      <FeedbackPopup questionTitle={questionTitle} />
       <SliderPopup
         setControlledSwiper={getControlledSlider}
         isOpen={isSliderPopupOpen}

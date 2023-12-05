@@ -19,23 +19,14 @@
   visibility: visible;
 }
 
-.popup__content {
-  display: flex;
-  flex-direction: column;
+.popup-content {
   position: relative;
   transform: scale(0, 0);
   transform-origin: center center;
   transition: .5s;
-  max-width: 70vw;
 }
 
-@media screen and (max-width: 767px) {
-  .popup__content {
-    max-width: 90vw;
-  }
-}
-
-.popup_opened .popup__content {
+.popup_opened .popup-content {
   transform: scale(1, 1);
 }
 

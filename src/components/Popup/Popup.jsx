@@ -24,15 +24,7 @@ const Popup = ({ children, onClose, isOpen }) => {
       className={`popup ${isOpen ? 'popup_opened' : ''}`}
       onMouseDown={handleOverlayClick}
     >
-      <div className="popup__content">
-        <button
-          className="popup__close-btn"
-          type="button"
-          aria-label="Закрыть всплывающее окно"
-          onClick={onClose}
-        />
-        {children}
-      </div>
+      {children}
     </div>
   );
 };

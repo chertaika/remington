@@ -23,7 +23,7 @@ const ERROR_CODE_422 = 422;
 const ERROR_CODE_487 = 487;
 
 // сообщения запросов
-const REQUEST_ERROR_MESSAGE = 'Что-то пошло не так...';
+const REQUEST_ERROR_MESSAGE = 'Что-то пошло не так... Попробуйте позже.';
 
 // методы запросов
 const METHOD_POST = 'POST';

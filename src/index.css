@@ -75,3 +75,36 @@
   flex-shrink: 0;
   touch-action: pan-y;
 }
+
+.popup-close-btn {
+  background-image: url("./assets/images/close-button.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: transparent;
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  transition: opacity 0.25s;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (hover: hover) {
+  .popup-close-btn:hover {
+    opacity: .6;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .popup-close-btn {
+    right: 0;
+    top: -41px;
+    width: 25px;
+    height: 25px;
+  }
+}

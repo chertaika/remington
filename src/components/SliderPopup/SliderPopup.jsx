@@ -10,26 +10,34 @@ const SliderPopup = ({
   slides,
 }) => (
   <Popup isOpen={isOpen} onClose={onClose}>
-    <Swiper
-      slidesPerView={1}
-      spaceBetween={10}
-      modules={[Pagination, Navigation, Keyboard]}
-      pagination={{ clickable: true }}
-      onSwiper={setControlledSwiper}
-      className="slider-popup"
-      keyboard
-      navigation
-    >
-      {slides.map(({ image_id: imageId, big }) => (
-        <SwiperSlide key={imageId}>
-          <img
-            className="slider-popup__image"
-            src={big}
-            alt="фото магазина"
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div className="slider-popup popup-content">
+      <button
+        className="slider-popup__close-btn popup-close-btn"
+        type="button"
+        aria-label="Закрыть всплывающее окно"
+        onClick={onClose}
+      />
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={10}
+        modules={[Pagination, Navigation, Keyboard]}
+        pagination={{ clickable: true }}
+        onSwiper={setControlledSwiper}
+        className="slider-popup__slider"
+        keyboard
+        navigation
+      >
+        {slides.map(({ image_id: imageId, big }) => (
+          <SwiperSlide key={imageId}>
+            <img
+              className="slider-popup__image"
+              src={big}
+              alt="фото магазина"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   </Popup>
 );
 

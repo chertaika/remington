@@ -60,20 +60,20 @@ class MainApi {
   }
 
   sendFeedback({
-    question = '',
+    subject = '',
     name,
     email,
-    number = '',
-    comment,
+    phone = '',
+    question,
   }) {
     return this._request(this._feedbackEndpoint, {
       method: METHOD_POST,
       body: JSON.stringify({
-        question,
+        subject,
         name,
         email,
-        number,
-        comment,
+        phone,
+        question,
       }),
     });
   }

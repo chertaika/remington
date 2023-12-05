@@ -13,12 +13,12 @@ const ButtonUp = () => {
     }
   });
 
-  const handlerScrollUp = () => {
+  const handleScrollUp = () => {
     window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   };
 
   return (
-    <div className={`button-up ${isButtonVisible ? 'button-up_visible' : ''}`} onClick={handlerScrollUp} />
+    <div className={`button-up ${isButtonVisible ? 'button-up_visible' : ''}`} onClick={handleScrollUp} />
   );
 };
 

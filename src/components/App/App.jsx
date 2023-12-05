@@ -10,10 +10,12 @@ import mainApi from '../../utils/MainApi';
 import Product from '../Product/Product';
 import FeedbackPopup from '../FeedbackPopup/FeedbackPopup';
 import FeedbackButton from '../FeedbackButton/FeedbackButton';
+import PrivacyPolicy from '../PrivacyPolicy/PrivacyPolicy';
 
 const App = () => {
   const [slides, setSlides] = useState([]);
   const [shops, setShops] = useState([]);
+  const [privacy, setPrivacy] = useState();
   const [currentGood, setCurrentGood] = useState({});
   const [questionSubject, setQuestionSubject] = useState('');
   const [isFeedbackPopupOpen, setIsFeedbackPopupOpen] = useState(false);
@@ -48,12 +50,14 @@ const App = () => {
   useEffect(() => {
     (async () => {
       try {
-        const [slidesData, shopsData] = await Promise.all([
+        const [slidesData, shopsData, privacyData] = await Promise.all([
           mainApi.getSlides(),
           mainApi.getShops(),
+          mainApi.getPrivacyPolicy(),
         ]);
         setSlides(slidesData);
         setShops(shopsData);
+        setPrivacy(privacyData);
       } catch (error) {
         console.log(`${ERROR}: ${error.message}`);
       }
@@ -86,10 +90,8 @@ const App = () => {
         <Route
           path="privacy-policy"
           element={(
-            <Product
-              currentGood={currentGood}
-              onAskButtonClick={handleAskButtonClick}
-              getCurrentProduct={getCurrentProduct}
+            <PrivacyPolicy
+              privacy={privacy}
             />
           )}
         />

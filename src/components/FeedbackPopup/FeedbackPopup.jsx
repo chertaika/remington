@@ -165,7 +165,7 @@ const FeedbackPopup = ({
             />
             <p className="feedback-popup__safe">
               Нажимая на кнопку &quot;Отправить&quot;, Вы соглашаетесь c&nbsp;
-              <a className="feedback-popup__policy link-hover" href="https://ekipirovka70.ru/">Политикой&nbsp;конфиденциальности</a>
+              <a className="feedback-popup__policy link-hover" href="/privacy-policy">Политикой&nbsp;конфиденциальности</a>
             </p>
           </form>
         </div>

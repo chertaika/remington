@@ -90,7 +90,7 @@ const Subscribe = () => {
         Нажимая на кнопку &quot;Подписаться&quot;, Вы соглашаетесь c&nbsp;
         <Link
           className="subscribe__policy link-hover"
-          to="https://ekipirovka70.ru/"
+          to="/privacy-policy"
         >
           Политикой конфиденциальности
         </Link>

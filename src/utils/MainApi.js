@@ -12,6 +12,7 @@ class MainApi {
       subscribeEndpoint,
       goodsEndpoint,
       feedbackEndpoint,
+      privacyEndpoint,
     },
   }) {
     this._baseUrl = baseUrl;
@@ -21,6 +22,7 @@ class MainApi {
     this._subscribeEndpoint = subscribeEndpoint;
     this._goodsEndpoint = goodsEndpoint;
     this._feedbackEndpoint = feedbackEndpoint;
+    this._privacyEndpoint = privacyEndpoint;
   }
 
   async _checkResponse(res) {
@@ -43,6 +45,10 @@ class MainApi {
 
   getShops() {
     return this._request(this._shopsEndpoint);
+  }
+
+  getPrivacyPolicy() {
+    return this._request(this._privacyEndpoint);
   }
 
   getGood(endpoint) {

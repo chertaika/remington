@@ -138,7 +138,6 @@ const FeedbackPopup = ({
             <div className="feedback-popup__field">
               <label className="feedback-popup__label feedback-popup__label_type_textarea">
                 Ваш вопрос (предложение/замечание) *
-                <div className="pull-tab" />
                 <textarea
                   name="question"
                   className={`feedback-popup__textarea ${errorMessages.question ? 'feedback-popup__textarea_type_error' : ''}`}

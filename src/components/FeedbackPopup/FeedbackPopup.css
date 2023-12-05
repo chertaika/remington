@@ -164,10 +164,9 @@
 
 .feedback-popup__label_type_textarea {
   position: relative;
-  display: inline-block;
 }
 
-.feedback-popup__label_type_textarea:after {
+.feedback-popup__label_type_textarea:before {
   content: "";
   border-top: 1px solid #6c6c57;
   width: 12px;
@@ -175,16 +174,17 @@
   background: transparent;
   position: absolute;
   right: 1px;
-  bottom: 10px;
+  bottom: 6px;
   pointer-events: none;
 }
 
-.pull-tab {
+.feedback-popup__label_type_textarea:after {
+  content: "";
   border-top: 1px solid #6c6c57;
   width:7px;
   transform: rotate(-45deg);
   position: absolute;
-  bottom: 7px;
+  bottom: 4px;
   right: 1px;
   pointer-events: none;
 }
